@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ToDo App</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body ng-app="todoApp" ng-controller="todoController">
+  <div class="logo">
+    <img src="images/MU-logo.png" alt="MU" />
+  </div>
+  <div class="container">
+    <h1 class="title">To Do App</h1>
+    <form ng-submit="addTask()">
+      <div class="form-control">
+        <input type="text" ng-model="task" name="task" required />
+        <button>Add Task</button>
+      </div>
+    </form>
+    <div class="statusBar">
+      <p class="statusText">{{remainingCount}} of {{tasks.length}} remaining</p>
+      <div class="clearButtons">
+        <button ng-click="clearAll()">Clear All</button>
+        <button ng-click="clearCompleted()">Clear Completed</button>
+      </div>
+    </div>
+    <div class="tasklisting">
+      <ul>
+        <li class="task" ng-repeat="task in tasks">
+          <input type="checkbox" name="" id="{{$index}}" ng-model="task.status" />
+          <label for="{{$index}}" class="done-{{task.status}}"><span class="checkmark"></span>
+            {{task.title | capitalize}}</label>
+          <div class="delete" ng-click="removeTask($index)"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controller.js"></script>
+</body>
+
+</html>

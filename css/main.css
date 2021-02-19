@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Poppins', 'Open Sans';
+  background-color: #fff;
+  color: #383435;
+}
+
+.logo{
+  position: fixed;
+  right:100px;
+  bottom: 80px;
+  z-index: -999;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+  min-width: 300px;
+  min-height: 400px;
+  margin: 100px auto;
+  padding: 1em;
+  background: linear-gradient(to bottom right, rgba(255,255,255, 0.8),rgba(255,255,255, 0.1));
+  backdrop-filter: blur(5px);
+  box-shadow: 10px 30px 70px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0.7em;
+}
+
+.container h1 {
+  font-size: 2em;
+  text-align: center;
+  color: #02909A;
+  margin-bottom: 0.8em;
+  text-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+}
+
+.form-control {
+  display: flex;
+  align-items: stretch;
+}
+
+.form-control input {
+  width: 100%;
+  border: none;
+  background: #eee;
+  padding: 0.7em;
+  font-size: 1.2em;
+}
+.form-control input:focus {
+  border: none;
+  outline: none;
+}
+button,
+button:active {
+  min-width: 100px;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  background: #00AAB4;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #FFF;
+}
+button:hover {
+  background: #02909A;
+}
+
+.tasklisting {
+  margin-top: 1em;
+}
+
+.tasklisting ul {
+  list-style: none;
+}
+
+.task {
+  position: relative;
+  font-size: 1.1em;
+  padding-left: 2em;
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.task label{
+  display: block;
+  cursor: pointer;
+  width: 100%;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: #eee;
+}
+.task:hover .checkmark {
+  background-color: #ccc;
+}
+.task input:checked ~ label .checkmark {
+  background-color: #00AAB4;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.task input:checked ~ label .checkmark:after {
+  display: block;
+}
+.task .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.delete{
+  width: 1.5em;
+  height: 1.5em;
+  position: relative;
+}
+.delete:before,.delete:after{
+  content: '';
+  position: absolute;
+  top:0.7em;
+  left: 0;
+  width: 1em;
+  height: 0.2em;
+  background-color: #eee;
+}
+.delete:before{
+  transform: rotate(45deg);
+}
+.delete:after{
+  transform: rotate(135deg);
+}
+.task:hover .delete:before,.task:hover .delete:after{
+  background-color: #ccc;
+}
+.task:hover .delete:hover::before,.task:hover .delete:hover::after{
+  background-color: #383435;
+}
+.done-true {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.statusBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1em;
+}
+.statusText{
+  width: 30%;
+}
+.clearButtons{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+.clearButtons button{
+  margin-left: 0.5em;
+  background-color: #959595;
+}
+.clearButtons button:hover{
+  background-color: #383435;
+}
